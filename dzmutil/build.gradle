@@ -1,8 +1,23 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'dengzhi00'//bintray.com用户名
+    groupId = 'com.sharesrc'//jcenter上的路径
+    artifactId = 'dzmsharesdk'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'this is for test'//描述，不重要
+    website = 'https://github.com/dengzhi00'//网站，最好有，不重要
+}
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    lintOptions {
+        abortOnError false
+    }
 
     defaultConfig {
         minSdkVersion 15
@@ -32,4 +47,8 @@ dependencies {
     compile files('libs/open_sdk_r5788.jar')
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

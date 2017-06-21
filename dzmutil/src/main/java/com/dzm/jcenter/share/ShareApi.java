@@ -19,12 +19,14 @@ import com.dzm.jcenter.share.share.Share;
 import com.dzm.jcenter.share.share.wb.ShareWb;
 import com.dzm.jcenter.share.share.wb.WbShareCallbackActivity;
 import com.dzm.jcenter.share.share.wx.ShareWx;
+import com.dzm.jcenter.update.ApkUpdateManager;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.R.attr.data;
 import static com.dzm.jcenter.share.share.wb.WbShareCallbackActivity.DZM_DATA;
 
 /**
@@ -95,21 +97,18 @@ public class ShareApi {
             }else{
                 share.share(shareDao,shareListener);
             }
-
         }else{
-            String data = "";
             switch (shareType){
                 case QQ:
-                    data = "qq";
+                    Toast.makeText(context,"qq_appid can not null",Toast.LENGTH_SHORT).show();
                     break;
                 case WEIXIN:
-                    data = "weixin";
+                    Toast.makeText(context,"weixin_appid can not null",Toast.LENGTH_SHORT).show();
                     break;
                 case WEIBO:
-                    data = "weibo";
+                    Toast.makeText(context,"weibo_apikey can not null",Toast.LENGTH_SHORT).show();
                     break;
             }
-            Toast.makeText(context,data+" can not null",Toast.LENGTH_SHORT).show();
         }
     }
 
